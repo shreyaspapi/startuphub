@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+model Company {
+  id                            String    @id
+  createdAt                     DateTime? @map("created_at")
+  name                          String?
+  shortDescription              String?   @map("short_description")
+  semrushGlobalRank             String?   @map("semrush_global_rank")
+  semrushVisitsLatestMonth      String?   @map("semrush_visits_latest_month")
+  numInvestors                  String?   @map("num_investors")
+  fundingTotal                  String?   @map("funding_total")
+  numExits                      String?   @map("num_exits")
+  numFundingRounds              String?   @map("num_funding_rounds")
+  lastFundingType               String?   @map("last_funding_type")
+  lastFundingAt                 String?   @map("last_funding_at")
+  numAcquisitions               String?   @map("num_acquisitions")
+  apptotiaTotalApps             String?   @map("apptopia_total_apps")
+  apptotiaTotalDownloads        String?   @map("apptopia_total_downloads")
+  contactEmail                  String?   @map("contact_email")
+  phoneNumber                   String?   @map("phone_number")
+  facebook                      String?
+  linkedin                      String?
+  twitter                       String?
+  numInvestments                String?   @map("num_investments")
+  numLeadInvestments            String?   @map("num_lead_investments")
+  numLeadInvestors              String?   @map("num_lead_investors")
+  listedStockSymbol             String?   @map("listed_stock_symbol")
+  companyType                   String?   @map("company_type")
+  hubTags                       String?   @map("hub_tags")
+  operatingStatus               String?   @map("operating_status")
+  foundedOn                     String?   @map("founded_on")
+  categories                    String?
+  founders                      String?
+  website                       String?
+  ipoStatus                     String?   @map("ipo_status")
+  numEmployeesEnum              String?   @map("num_employees_enum")
+  locations                     String?
+  growthInsightDescription      String?   @map("growth_insight_description")
+  growthInsightIndicator        String?   @map("growth_insight_indicator")
+  growthInsightDirection        String?   @map("growth_insight_direction")
+  growthInsightConfidence       String?   @map("growth_insight_confidence")
+  investorInsightDescription    String?   @map("investor_insight_description")
+  permalink                     String?
+  url                           String?
+
+  @@map("company")
+}
